@@ -1,6 +1,0 @@
-\select@language {ngerman}
-\contentsline {chapter}{Vorwort}{iii}{chapter*.1}
-\contentsline {chapter}{Danksagung}{v}{chapter*.2}
-\contentsline {chapter}{\chapternumberline {~~~1}Am Anfang war}{1}{chapter.1}
-\contentsline {chapter}{\chapternumberline {~~~2}Also zog es}{9}{chapter.2}
-\contentsline {chapter}{\chapternumberline {~~~3}Nie mehr wie}{17}{chapter.3}

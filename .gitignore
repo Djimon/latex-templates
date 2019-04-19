@@ -10,3 +10,7 @@
 *.pdf
 *.toc
 *.aux
+*.bbl
+*.blg
+*.idx
+*.loa

@@ -1,0 +1,67 @@
+% WICHTIGE INFO:
+% für die grundsätzlichen Daten der Titelpage bitte 
+% die Definitionen in der0 phdthesis.sty Datei pflegen!
+% WICHTIGE INFO ENDE
+
+
+\input{preamble}
+
+\makeindex
+\cftpagenumbersoff{chapter}
+\begin{document}
+
+% =============================================================================
+	\frontmatter
+
+	%\input{chapter/front}
+	\input{chapter/titlepage}
+	
+% =============================================================================
+	\mainmatter
+	
+	\renewcommand{\baselinestretch}{1.05}
+	\small\normalsize
+	\scalefont{1.08}
+
+	%entspannt jedes Kapitel in eigener aufgeräumten .tex Datei schreiben
+	\input{chapter/0_intro}
+	\input{chapter/1_background}
+	\input{chapter/2_theorie}
+	\input{chapter/3_evaluation}
+	\input{chapter/4_conclusion}
+
+	\appendix
+	%\include{related}
+	%\include{appendix/charts}
+	\include{appendix/lists}
+	\include{appendix/bib}
+	%\include{index}
+
+% =============================================================================
+	\backmatter
+	
+	%\include{stmt}
+
+
+\newpage
+\thispagestyle{empty}
+\begin{center}
+	\vspace*{5em}
+	\huge\textbf{Selbstständigkeitserklärung}\\
+\end{center}
+\vspace{2em}
+Hiermit erkläre ich, die vorliegende Bachelorarbeit selbstständig, nur unter Zuhilfenahme der aufgeführten Quellen und Hilfsmittel, verfasst zu haben.
+
+Die Arbeit wurde weder einer anderen Prüfungsbehörde vorgelegt noch veröffentlicht.
+
+\vspace{4em}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{p{15em}p{15em}}
+		Datum: &  .......................................................\\
+		& \centering (Unterschrift)\\
+	\end{tabular}
+\end{minipage}
+
+\end{document}
+
+         

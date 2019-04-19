@@ -1,0 +1,350 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{amsmath,amsfonts,amssymb,bbm}
+\usepackage{graphicx}
+\usepackage{phdthesis}
+\usepackage{natbib}
+\usepackage{ifdraft}
+\usepackage{xspace,xcolor}
+\usepackage{ellipsis,fixltx2e,microtype}
+\usepackage[labelfont=bf,justification=RaggedRight,textfont=it]{caption}
+\usepackage{supertabular}
+\usepackage{footnote}        % Fusznoten in Tabellen-Patch
+\usepackage[english]{babel}
+\usepackage{multirow}
+\usepackage{varioref}
+\usepackage{rotating}
+\usepackage{booktabs}
+
+\usepackage{fourier}         % Schrift
+\usepackage{scalefnt}
+\usepackage[scaled=0.875]{helvet} % ss
+\renewcommand{\ttdefault}{lmtt} %tt
+
+\usepackage{pifont}   % \ding{} commands
+
+\usepackage{makeidx}
+\usepackage[columns=2]{idxlayout}
+
+\usepackage[linesnumbered]{algorithm2e}
+
+\usepackage{picins}
+\usepackage{wrapfig}
+\usepackage{gastex}
+\usepackage{tocloft}
+\usepackage[flushmargin]{footmisc} % Fusznoten-Einzug-Patch
+\usepackage[tight,nice]{units}
+
+\usepackage{bibunits}
+%\usepackage{printlen}
+
+\usepackage{geometry}
+\geometry{layoutvoffset=9mm}
+\geometry{textwidth=137.07mm}
+\geometry{textheight=208.07mm}
+
+\geometry{bindingoffset=16mm}
+
+
+\usepackage[rightcaption]{sidecap}
+
+% hyperref immer als letztes!
+\ifdraft{%
+\newcommand{\url}[1]{\texttt{#1}}
+}{%
+\usepackage[dvips,colorlinks=true,breaklinks=true,hyperindex=true]{hyperref}
+\usepackage{breakurl}
+}
+ 
+% DEBUGGING STUFF
+% ---------------
+% Einkommentieren, um nach unreferenzierten
+% Labels zu suchen (muss nach hyperref stehen!)
+%\usepackage[showrefs,msgs]{refcheck}
+%\usepackage{showidx}
+
+% Ligaturen ausschalten
+%\DisableLigatures{encoding = *, family = * }
+
+% Silbentrennung ausschalten
+%\usepackage[none]{hyphenat}
+
+
+\graphicspath{{../img/eps/}{../img/ps/}{../img/plt/}{../data/bt/results/img/}{../data/example_net/}}
+
+
+\parskip1ex
+\parindent0em
+
+\newcommand{\ie}{that is\xspace}
+\newcommand{\Eg}{For example\xspace}
+\newcommand{\eg}{e.\thinspace{}g.\xspace}
+\newcommand{\wrt}{with respect to\xspace}
+\newcommand{\cf}{cf.\xspace}
+\newcommand{\etc}{etc\xspace}
+
+\DeclareMathOperator{\lift}{lift}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\relsupp}{rel-supp}
+\DeclareMathOperator{\abssupp}{abs-supp}
+\DeclareMathOperator{\parents}{parents}
+\DeclareMathOperator{\recall}{recall}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\comp}{comp}
+\DeclareMathOperator{\wght}{wght}
+\DeclareMathOperator{\avg}{avg}
+\DeclareMathOperator{\med}{med}
+\DeclareMathOperator{\dev}{dev}
+\DeclareMathOperator{\preci}{prec}
+
+
+
+\newcommand{\att}[1]{\ensuremath{\mathsf{#1}}\xspace}
+\def\bigtimes{\mathop{\raise-.5ex\hbox{\LARGE\rm$\times$}}}
+
+%\newcommand{\llbr}{[\hspace{-0.22em}[}
+%\newcommand{\rrbr}{]\hspace{-0.22em}]}
+
+\newcommand{\valof}[1]{\ensuremath\llbracket#1\rrbracket}
+%\newcommand{\valof}[1]{\ensuremath\llbr#1\rrbr}
+\newcommand{\cov}[1]{\ensuremath\bigl[#1\bigr]}
+
+% Zahlenbereiche
+%\newcommand{\Integer}[0]{\mathrm{Z\hspace{-0.4em}Z}}
+\newcommand{\Natural}[0]{\mathrm{I\hspace{-0.8mm}N}}
+\newcommand{\Real}[0]{\mathrm{I\hspace{-0.8mm}R}}
+
+\newcommand{\1}[0]{\mathbbmss{1}\!}
+
+\newcommand{\argmax}[0]{\operatornamewithlimits{arg\,max}}
+
+\newcommand{\fig}[1]{Figure~\ref{#1}\xspace}
+\newcommand{\Fig}[1]{Figure~\ref{#1}\xspace}
+\newcommand{\tab}[1]{Table~\ref{#1}\xspace}
+\newcommand{\Tab}[1]{Table~\ref{#1}\xspace}
+\newcommand{\alg}[1]{Algorithm~\ref{#1}\xspace}
+\newcommand{\Alg}[1]{Algorithm~\ref{#1}\xspace}
+\newcommand{\sect}[1]{Section~\ref{#1}\xspace}
+\newcommand{\Sect}[1]{Section~\ref{#1}\xspace}
+\newcommand{\defn}[1]{Definition~\ref{#1}\xspace}
+\newcommand{\Defn}[1]{Definition~\ref{#1}\xspace}
+\newcommand{\eq}[1]{equation~\ref{#1}\xspace}
+\newcommand{\Eq}[1]{Equation~\ref{#1}\xspace}
+\newcommand{\Chap}[1]{Chapter~\ref{#1}\xspace}
+\newcommand{\chap}[1]{Chapter~\ref{#1}\xspace}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\fsd}[2]{\mu_{\Delta_{\mathrm{#1}}}^{\ling{#2}}\xspace}
+\newcommand{\fs}[2]{\mu_{#1}^{\ling{#2}}\xspace}
+\newcommand{\ling}[1]{\ensuremath{\mathsf{#1}}}
+
+\newcommand{\?}[0]{\texttt{?}}
+\newcommand{\fcis}[0]{\mathrm{~is~}}
+\newcommand{\fcand}[0]{\mathrm{~and~}}
+\newcommand{\fcor}[0]{\mathrm{~or~}}
+\newcommand{\fcnot}[0]{\mathrm{not~}}
+\newcommand{\notion}[1]{\textsc{#1}}
+\newcommand{\etal}{et\thinspace{}al.\xspace}
+
+\newcommand{\ob}[1]{\ovalbox{\sf #1}}
+
+% "\headheight is too small"-Warnung loswerden
+\setlength{\headheight}{15pt}
+
+% \tocless verhindert die Aufnahme ins IHV
+% (behaelt aber Nummerierung bei)
+%-----------------------------------------------------------------------------
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+%\renewcommand{\emph}[1]{\textbf{#1}}
+
+
+%----------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{axiom}[theorem]{Axiom}
+%\newtheorem{case}[theorem]{Case}
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{conclusion}[theorem]{Conclusion}
+%\newtheorem{condition}[theorem]{Condition}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{exercise}[theorem]{Exercise}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{notation}[theorem]{Notation}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+%\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+% Farbdefinitionen
+%-----------------------------------------------------------------------------
+\definecolor{dark-red}{rgb}{.6, 0, 0}
+\definecolor{dark-blue}{rgb}{0, 0, .6}
+\definecolor{dark-green}{rgb}{0, .5, 0}
+\definecolor{lavender}{rgb}{.902, .902, .98}
+
+
+% Setup fuer Links
+%-----------------------------------------------------------------------------
+\ifdraft{}{%
+\hypersetup{%
+	pdftitle = {Discovery and Visualization of Interesting Patterns},
+	pdfauthor = {Matthias Steinbrecher},
+	%citecolor={dark-blue},
+	%linkcolor={dark-red},
+	%urlcolor={dark-green}
+	citecolor={black},
+	linkcolor={black},
+	urlcolor={black}
+}
+}
+
+% Fusznoten innerhalb von Tabellen sollen angezeigt werden
+\makesavenoteenv{tabular}
+
+
+
+\newcounter{baustellen}
+\setcounter{baustellen}{0}
+\newcommand{\baustelle}[1]{%
+	\addtocounter{baustellen}{1}%
+	\marginpar{%
+		\begin{flushleft}
+		\includegraphics[width=1.5cm]{baustelle1}\\%
+	 		{\color{red}\footnotesize TODO \#\thebaustellen}\linebreak%
+			{\color{red}\scriptsize #1}%
+	 	\end{flushleft}%
+	}%
+}
+\renewcommand{\baustelle}[1]{}
+
+% Fontanpassung und vertikaler Platz vor den Ueberschriften 
+% der Verzeichnisse (damit sie auf gleicher Hoehe wie die 
+% Chapter mit groszen Zahlen sind)
+%-----------------------------------------------------------------------------
+\setlength\cftbeforetoctitleskip{25.5mm}
+\setlength\cftbeforeloftitleskip{25.5mm}
+\setlength\cftbeforelottitleskip{25.5mm}
+\renewcommand{\cfttoctitlefont}{\hfill\huge}
+\renewcommand{\cftloftitlefont}{\hfill\huge}
+\renewcommand{\cftlottitlefont}{\hfill\huge}
+
+
+% Sorgt dafuer, dass die mit dem Package footmisc einzugslosen Fusznotennummern
+% nicht auszerhalb des linken Randes sind....
+%-----------------------------------------------------------------------------
+\makeatletter
+\newlength{\myFootnoteWidth}
+\newlength{\myFootnoteLabel}
+\setlength{\myFootnoteLabel}{0.7em}%  <-- can be changed to any valid value
+\renewcommand{\@makefntext}[1]{%
+  \setlength{\myFootnoteWidth}{\columnwidth}%
+  \addtolength{\myFootnoteWidth}{-\myFootnoteLabel}%
+  \noindent\makebox[\myFootnoteLabel][r]{\@makefnmark\ }%
+  \parbox[t]{\myFootnoteWidth}{#1}%
+}
+\makeatother
+
+
+% Definitions from Graphical Models book
+\definecolor{LightGray}{rgb}{.8,.8,.8}
+\def\support{\mathop{\rm support}\nolimits}
+\def\myfrac#1#2{{}^{#1}\kern-.3ex/\kern-.25ex{}_{#2}}
+\newsavebox{\tmpboxa}
+
+\def\cbox(#1,#2)#3{\put(#1,#2){% centered text in 10 x 6 box
+  \vbox to 6\unitlength{\vss
+  \hbox to10\unitlength{\hss#3\hss}\vss}}}
+
+\def\csqr(#1,#2)#3{\put(#1,#2){% centered text in 10 x 10 box
+  \vbox to10\unitlength{\vss
+  \hbox to10\unitlength{\hss#3\hss}\vss}}}
+
+
+\clubpenalty = 10000 
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+
+% Silbentrennung
+%-----------------------------------------------------------------------------
+\hyphenation{Ag-ra-wal}
+\hyphenation{Koun-dou-ra-kis}
+\hyphenation{Theo-dou-li-dis}
+\hyphenation{Goet-hals}
+\hyphenation{Asun-cion}
+\hyphenation{Bor-gelt}
+\hyphenation{Spie-gel-hal-ter}
+
+\hyphenation{data-base}
+\hyphenation{bet-ween}
+\hyphenation{para-mount}
+\hyphenation{an-te-ce-dent}
+\hyphenation{an-te-ce-dents}
+
+\hyphenation{Unter-neh-men}
+\hyphenation{Da-ten-meng-en}
+\hyphenation{re-agie-ren}
+\hyphenation{Ana-ly-se-metho-den}
+\hyphenation{Aus-wert-ung-en}
+
+
+\bibpunct[, ]{[}{]}{,}{a}{}{,}
+\bibliographystyle{../bib/noon}
+
+
+
+% Einheitliche Schreibungen
+
+% data set
+% item set
+% rule set
+% time series
+% time frame
+% time stamp
+% time span
+
+% database
+
+% antecedent
+% consequent
+
+% focused
+% labeled
+% modeled 
+
+% behavior
+% color
+
+% (in)dependence
+% (in)dependences
+
+% real-world
+
+% gray 
+
+% above-mentioned
+% counter-clockwise
+
+% $N$ ... |U|
+% $M$ ... set of all measures
+% $T$ ... number of time frames
+% $R$ ... set of all rules
+% $D$ ... database
+% $X$ ... antecedent
+% $Y$ ... consequent
+% $I$ ... item set
+% $J$ ... item set
+% $\Xi$ . set of all fuzzy concepts
+ 

@@ -1,0 +1,152 @@
+
+\begin{titlepage}
+  \thispagestyle{titlepage}
+  \begin{center}
+  {\LARGE \myuniversity}\\[10mm]
+  \begin{figure*}[h]
+   \hbox{}\hfill
+   \begin{minipage}[t]{9cm}
+			 \centering
+			 % LOGO DEINER UNI/FAKULTÄT HIER EINFÜGEN
+			 \includegraphics[width=7cm]{logos/OVGU_SIGN_druck.eps}
+   \end{minipage}
+   \hfill\hbox{}
+  \end{figure*}
+  {\large \myschool\\ \mydepartment}\\[10mm]
+  {\LARGE \kindOfThesis}\\[5mm]
+		%{\large\bf \titleOfThesis}\\[10mm]
+		{\Large\bf \titleOfThesis}\\[10mm]
+  {\small Author:}\\[1mm]
+  {\large \myfirstname~\mylastname}\\[5mm]
+  {\small \today}\\[5mm]
+   
+  \vspace{3cm}
+  %BETREUER HIER
+  \begin{tabular}{c}
+  	\multicolumn{1}{c}{\small Betreuer:} \\[1mm]
+  	{\small Prof. Dr.}  \\
+  	{\large Attila Hunnenking} \\[2mm]
+  	{\small \myschool}  \\
+  	{\small \myuni}	\\
+  	{\small \myunistreet} \\
+  	{\small \myunizipcity}
+  \end{tabular} \\[5mm]
+
+ 
+\renewcommand{\arraystretch}{1}
+  \end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\cleardoublepage
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{minipage}{.95\textwidth}
+\textbf{\mylastname,~\myfirstname:}\\
+\emph{\titleOfThesis}\\
+\kindOfThesis, \myuni \\
+\myplace, \myyear.
+\end{minipage}
+
+\clearpage
+
+% =============================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inhaltsverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%INFO tocdepths gibt Detailgrad des Inhaltsverzeichnus, also ob nur Sections oder sogar SubSubSections {3} angezeigt werden sollen
+\setcounter{tocdepth}{2} 
+\tableofcontents
+
+%\addcontentsline{toc}{chapter}{Abbildungsverzeichnis} %ist im appendix
+%\listoffigures
+
+%\addcontentsline{toc}{chapter}{Tabellenverzeichnis} %ist im appendix
+%\listoftables
+
+%\addcontentsline{toc}{chapter}{Algorithmenverzeichnis} %ist im appendix
+%\listofalgorithms
+
+\cleardoublepage
+% =============================================================================
+
+\phantomsection
+\section*{Kurzfassung}
+\addcontentsline{toc}{chapter}{Kurzfassung}
+ 
+\blindtext{100}
+
+%\clearpage
+%\phantomsection
+%\section*{Abstract}
+%\addcontentsline{toc}{chapter}{Abstract}
+%englische Kurzfassung der Arbeit
+
+
+\cleardoublepage
+% =============================================================================
+
+%
+\thispagestyle{plain}
+\phantom{.}
+\vspace{70mm}
+
+%\begin{center}
+%	\textit{
+%		Wer sein eigener Lehrer sein will,\\
+%		hat einen Idioten als Schüler.\\		
+%	}
+%\end{center}
+%\begin{flushright}
+	%	\citet{Jain1988}
+%	Deutsches Sprichwort
+%\end{flushright}
+
+
+%\begin{center}
+%	\textit{
+%		Es geschieht nicht ein- oder zweimal, \\
+%		sondern unzählige Male, \\
+%		dass die gleichen Ideen \\
+%		auf der Welt erscheinen. \\
+%	}
+%\end{center}
+%\begin{flushright}
+%	\citet{Jain1988}
+%	Aristoteles 'On The Heavens'
+%\end{flushright}
+ 
+% NICHTSSAGENDES ZITAT HIER EINFÜGEN
+\begin{center}
+	\textit{
+		Je größer das Wissen eines Mannes ist über das,\\
+		was schon getan wurde,\\
+		desto größer wird seine Macht, \\
+		zu wissen, was zu tun ist. \\
+	}
+\end{center}
+\begin{flushright}
+	%\citet{Jain1988}
+	Benjamin Disraeli, brit. Premierminister 19.Jhd.
+\end{flushright}
+
+%\uselengthunit{mm}
+%textwidth=\printlength{\textwidth}\\
+%textheight=\printlength{\textheight}\\
+%top=\printlength{\top}\\
+
+\cleardoublepage
+% =============================================================================
+
+%SCHLEIMEN
+\thispagestyle{plain}
+\section*{Danksagungen}
+
+\blindtext{80}
+
+\cleardoublepage
+% =============================================================================
+

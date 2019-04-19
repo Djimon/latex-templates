@@ -1,0 +1,277 @@
+\documentclass[a4paper,11pt]{book} %draft%
+
+\usepackage{amsmath,amsfonts,amssymb,bbm}	
+\usepackage{graphicx}						% Einbinden von Bildern
+\usepackage{phdthesis}						% Styledatei
+\usepackage[utf8]{inputenc}					% Umlaute
+\usepackage{epstopdf}						% einbinden von .eps Dateien in pdflatex, erfordert ghostscript
+\usepackage{psboxit}
+\usepackage[ngerman]{babel}					% Formatierungen in deutscher Sprache z.B. Datum
+
+\usepackage{blindtext}						% Lorem Ipsum
+\usepackage[colorinlistoftodos]{todonotes} 	%\todo, \missingfigure und \listoftodos (siehe unten für eigene Definitionen)
+
+
+\usepackage[sort]{natbib}					% Zitationstyle
+\usepackage{bibunits}						% Einbinden mehrerer Literaturverzeichnisse
+
+
+\usepackage{nicefrac}						% schönere Darstellung von Brüchen
+\usepackage{subcaption}						% Bildunterschriften mehrerer Subfigures 
+\usepackage{multirow}						% Tabellen mit Zeilen und Spaltenverbunden
+\usepackage[]{caption}						% Bildunterschriften bei mehreren Teilgrafiken in einer Figure
+\usepackage{catoptions}						
+
+
+% EIGENE (Christoph Dollase)
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\newtcolorbox
+[auto counter,number within=section]{bsp}[2][]{
+	colback=black!5!black,colframe=black!40!white,fonttitle=\bfseries,
+	title=Bsp.~
+	\thetcbcounter
+	: #2,#1}
+%\newtcolorbox[auto counter,number within=chapter]{bsp}[1][]{
+%	fonttitle=\scshape,
+%	title={Bsp. \thetcbcounter},
+%	#1}
+
+% Todo Notationen
+% -----------------------------------------------------------
+\newcommand{\newtodo}[1]{\todo[inline, color=yellow!90]{#1}}
+\newcommand{\wichtig}[1]{\todo[inline, color=red!65]{#1}}  
+\newcommand{\reread}[1]{\todo[color=green!90]{#1}}
+\newcommand{\change}[1]{\todo[color=blue!40]{#1}}
+\newcommand{\info}[1]{\todo[color=white, bordercolor=black]{#1}}
+
+
+% ENDE EIGENE
+
+% Schriftart und Textformatierungen
+% -----------------------------------------------------------
+\usepackage{fourier}        
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\usepackage{scalefnt}
+\usepackage[scaled=0.875]{helvet} % ss
+\renewcommand{\ttdefault}{lmtt} %tt
+\usepackage{microtype}						% Verbesserungen im Texfluss
+\setlength{\emergencystretch}{1em}
+
+\DeclareFontFamily{U}{rcjhbltx}{}
+\DeclareFontShape{U}{rcjhbltx}{m}{n}{<->rcjhbltx}{}
+\DeclareSymbolFont{hebrewletters}{U}{rcjhbltx}{m}{n}
+\DeclareMathSymbol{\ayin}{\mathord}{hebrewletters}{96}
+\DeclareMathSymbol{\beth}{\mathord}{hebrewletters}{98}\let\bet\beth
+
+
+% Literaturverzeichnis und Inhaltslisten (Bilder, Tabellen, Algorithmen)
+% ----------------------------------------------------------
+\usepackage{tocloft}						% Beeinflussen des Literaturverzeichnisses und anderer Inhaltslisten
+
+
+% Tabellenformatierung
+% ----------------------------------------------------------
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{slashbox}
+
+% EIGENE Tabellen anpassung
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+% ENDE
+
+% Schusterjungen und Hurenkinder bestrafen
+% -----------------------------------------------------------
+\clubpenalty = 10000 
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+
+% Darstellungen von Graphen
+% -----------------------------------------------------------
+\usepackage{tikz}
+
+%\usepackage[pdfborder	={0 0 0}]{hyperref}
+\usepackage[hidelinks]{hyperref}
+
+
+\makeatletter
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+
+% Algorithmen und Pseudocode
+% -----------------------------------------------------------
+\usepackage{algorithmic}
+\usepackage{algorithm} 
+\renewcommand{\listalgorithmname}{Algorithmenverzeichnis}
+\floatname{algorithm}{Algorithmus} 
+\renewcommand{\algorithmicrequire}{\textbf{Eingabe:}} 
+\renewcommand{\algorithmicensure}{\textbf{Ausgabe:}} 
+\renewcommand{\algorithmicreturn}{\textbf{Rückgabe:}} 
+%\renewcommand{\algorithmifloatname}{\textbf{Algorithmus}} 
+\renewcommand{\algorithmicwhile}{\textbf{So lange}} 
+\renewcommand{\algorithmicforall}{\textbf{Für alle}} 
+\renewcommand{\algorithmicif}{\textbf{Wenn}} 
+\renewcommand{\algorithmicthen}{\textbf{dann}} 
+\renewcommand{\algorithmicendif}{\textbf{Wenn Ende}} 
+\renewcommand{\algorithmicdo}{\textbf{führe aus}} 
+\renewcommand{\algorithmicendfor}{\textbf{Für alle Ende}} 
+\renewcommand{\algorithmicendwhile}{\textbf{So lange Ende}} 
+
+
+\parskip1ex
+\parindent0em
+
+
+% Notationen
+% -----------------------------------------------------------
+\DeclareMathOperator{\lift}{lift}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+
+
+% Zahlenbereiche
+% -----------------------------------------------------------
+\newcommand{\Integer}[0]{\mathrm{Z\hspace{-0.4em}Z}}
+\newcommand{\Natural}[0]{\mathrm{I\hspace{-0.8mm}N}}
+\newcommand{\Real}[0]{\mathrm{I\hspace{-0.8mm}R}}
+
+
+% "\headheight is too small"-Warnung loswerden
+\setlength{\headheight}{15pt}
+
+
+% \tocless verhindert die Aufnahme ins IHV
+% (behaelt aber Nummerierung bei)
+%-----------------------------------------------------------------------------
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+
+
+% Umgebungsdefinitionen
+%----------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+%\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{axiom}[theorem]{Axiom}
+%\newtheorem{case}[theorem]{Case}
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{conclusion}[theorem]{Conclusion}
+%\newtheorem{condition}[theorem]{Condition}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{exercise}[theorem]{Exercise}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{notation}[theorem]{Notation}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+%\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+
+% Farbdefinitionen
+%-----------------------------------------------------------------------------
+\definecolor{blue}{RGB}{102,102,255}
+\definecolor{green}{RGB}{152,223,138}
+\definecolor{violet}{RGB}{148,103,189}
+\definecolor{pablue}{RGB}{0,77,128}
+\definecolor{palightlue}{RGB}{0,143,213}
+\definecolor{pagreen}{RGB}{153,204,51}
+\definecolor{paorange}{RGB}{255,153,51}
+
+
+
+% Sorgt dafuer, dass die mit dem Package footmisc einzugslosen Fusznotennummern
+% nicht auszerhalb des linken Randes sind....
+% -----------------------------------------------------------
+\makeatletter
+\newlength{\myFootnoteWidth}
+\newlength{\myFootnoteLabel}
+\setlength{\myFootnoteLabel}{0.7em}%  <-- can be changed to any valid value
+\renewcommand{\@makefntext}[1]{%
+  \setlength{\myFootnoteWidth}{\columnwidth}%
+  \addtolength{\myFootnoteWidth}{-\myFootnoteLabel}%
+  \noindent\makebox[\myFootnoteLabel][r]{\@makefnmark\ }%
+  \parbox[t]{\myFootnoteWidth}{#1}%
+}
+
+% capitalized reference
+\def\Autoref#1{%
+	\begingroup
+	\edef\reserved@a{\cpttrimspaces{#1}}%
+	\ifcsndefTF{r@#1}{%
+		\xaftercsname{\expandafter\testreftype\@fourthoffive}
+		{r@\reserved@a}.\\{#1}%
+	}{%
+	\ref{#1}%
+}%
+\endgroup
+}
+\def\testreftype#1.#2\\#3{%
+	\ifcsndefTF{#1autorefname}{%
+		\def\reserved@a##1##2\@nil{%
+			\uppercase{\def\ref@name{##1}}%
+			\csn@edef{#1autorefname}{\ref@name##2}%
+			\autoref{#3}%
+		}%
+		\reserved@a#1\@nil
+	}{%
+	\autoref{#3}%
+}%
+}
+
+% Definition von Mehrfachreferenzen
+\newcommand\multref[1]{\@first@ref#1,@}
+\def\@throw@dot#1.#2@{#1}% discard everything after the dot
+\def\@set@refname#1{%    % set \@refname to autoefname+s using \getrefbykeydefault
+	\edef\@tmp{\getrefbykeydefault{#1}{anchor}{}}%
+	\def\@refname{\@nameuse{\expandafter\@throw@dot\@tmp.@autorefname}s}%
+}
+\def\@first@ref#1,#2{%
+	\ifx#2@\autoref{#1}\let\@nextref\@gobble% only one ref, revert to normal \autoref
+	\else%
+	\@set@refname{#1}%  set \@refname to autoref name
+	\@refname~\ref{#1}% add autoefname and first reference
+	\let\@nextref\@next@ref% push processing to \@next@ref
+	\fi%
+	\@nextref#2%
+}
+\def\@next@ref#1,#2{%
+	\ifx#2@ and~\ref{#1}\let\@nextref\@gobble% at end: print and+\ref and stop
+	\else, \ref{#1}% print  ,+\ref and continue
+	\fi%
+	\@nextref#2%
+}
+
+% roman numbers
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+% Kürzel für Fließtexte
+% -----------------------------------------------------------
+\newcommand{\etc}{etc.\xspace}
+
+% Befehle für Matheumgebungt
+% -----------------------------------------------------------
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Befehle für Matheumgebung und Fließtext
+% -----------------------------------------------------------
+\newcommand{\epsneighborhood}{\ensuremath{\epsilon}-neigh\-bor\-hood\xspace}
+
+% Silbentrennung (speziell für Namen relevant)
+% -----------------------------------------------------------
+\hyphenation{Ag-ra-wal}
+ 

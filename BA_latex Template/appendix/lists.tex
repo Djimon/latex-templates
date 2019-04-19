@@ -1,0 +1,109 @@
+
+%\cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% List of Todos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abkuerzungsverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Abkürzungen und Notationen}
+
+%\chapter{Abkürzungsverzeichnis}
+%\addcontentsline{toc}{section}{List of Abbreviations and Notations}
+
+\subsubsection{Dataset and clustering acronyms}
+\begin{table}[H]
+	\begin{tabular}{cR{\textwidth}}
+		\toprule
+		Abkürzung & Bedeutung \\ \midrule
+%A
+%B
+		\textbf{BoW} & Bag of Words \\
+%C
+%D
+		\textbf{DTC} & Decision Tree Classifier \\
+%E
+%F
+		\textbf{FN} & False Negatives \\
+		\textbf{FP} & False Positives \\
+%G
+%H
+%I
+		\textbf{idf} & Inverse Document Frequency \\
+%J
+%K
+%L
+%M
+%N
+		\textbf{NB} & Naive Bayes \\
+%O
+%P
+%Q
+%R
+		\textbf{RF} & Random Forest \\
+%S
+		\textbf{SVM} & Support Vector Machine \\
+%T
+		\textbf{tf} & Term Frequency \\
+		\textbf{TN} & True Negatives \\
+		\textbf{TP} & True Positives \\
+%U
+%V
+%W
+%X		
+		$\mathbf{X}$ & Datensatz  \\
+%Y
+		$\mathbf{Y}$ & Resultat \\
+%Z
+		
+		\bottomrule
+	\end{tabular}	
+\end{table}
+
+
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abbildungsverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Abbildungsverzeichnis}
+\vspace{-0.3cm}
+%\addcontentsline{toc}{section}{List of Figures}
+\makeatletter
+\@starttoc{lof}% Print List of Figures
+\makeatother
+\cleardoublepage
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tabellenverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\chapter{Tabellenverzeichnis}
+\makeatletter
+\@starttoc{lot}% Print List of Tables
+\makeatother
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Algorithmenverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Verzeichnis der Algorithmen}
+%\listofalgorithms
+\begingroup
+\renewcommand{\listalgorithmname}{}
+\let\chapter\subsection% Make \chapter equivalent to \section
+\listofalgorithms
+\endgroup
+%\makeatletter
+%\@starttoc{loa}% Print List of Algorithms
+%\makeatother
+%%\listofalgorithms

@@ -9,7 +9,7 @@
 	-> [X] Verteilung Branchen
 	-> [X] verteilung Module anpassungen
 	-> Confusion-Matrix für ???
-	-> Hexagons mit allgemeinen Fähigkeiten
+	-> [X] Hexagons mit allgemeinen Fähigkeiten
 	-> [X] Spider-Chart BI-Expertise
 	-> [X] Zeitverlauf Mehrwert-Schöpfung [= Umsatz]
 	
